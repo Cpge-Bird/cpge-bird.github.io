@@ -90,6 +90,7 @@ nav img {
     border-radius: 20px;
     flex-grow: 1;
     max-width: 250px;
+    width: 100%;
 }
 
 .search-bar input {
@@ -99,6 +100,7 @@ nav img {
     font-size: 1em;
     border-radius: 20px;
     flex-grow: 1;
+    min-width: 0; /* Prevent the input from expanding too much */
 }
 
 .search-bar button {
@@ -108,6 +110,7 @@ nav img {
     font-size: 1.2em;
     cursor: pointer;
     margin-left: 10px;
+    flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 /* Entry Animation */
@@ -279,11 +282,22 @@ nav img {
         margin: 10px 0;
         border-radius: 15px; /* Reduced border-radius */
         padding: 10px; /* Increased padding for better touch usability */
+        flex-wrap: nowrap; /* Prevent wrapping */
     }
 
     .search-bar input {
         padding: 10px;
         border-radius: 15px; /* Reduced border-radius */
+    }
+
+    .search-bar button {
+        margin-left: 5px; /* Reduced margin for better fit */
+    }
+
+    /* Ensure search bar stays in one line */
+    .search-bar {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
     /* Stack content vertically */
@@ -344,6 +358,17 @@ nav img {
     .search-bar input {
         padding: 12px;
         border-radius: 10px; /* Further reduced border-radius */
+    }
+
+    .search-bar button {
+        font-size: 1em;
+        margin-left: 5px;
+    }
+
+    /* Ensure search bar stays in one line */
+    .search-bar {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
     .content-left h1 {
@@ -409,11 +434,12 @@ nav img {
     font-size: 24px;
     cursor: pointer;
     color: #333;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .close:hover {
     color: #ff0000;
+    transform: rotate(90deg);
 }
 
 #countdown {
@@ -430,11 +456,12 @@ button#learnMoreBtn {
     font-size: 1.1em;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button#learnMoreBtn:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 /* Confetti Canvas */
