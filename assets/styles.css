@@ -1,3 +1,4 @@
+/* Base Styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -20,6 +21,7 @@ body, html {
 
 a {
     color: #01e6ff;
+    text-decoration: none;
 }
 
 /* Navigation Bar */
@@ -43,7 +45,7 @@ nav img {
 }
 
 .hamburger {
-    display: none;
+    display: none; /* Hidden by default */
     font-size: 24px;
     background: none;
     border: none;
@@ -78,6 +80,7 @@ nav img {
     border-radius: 8px;
 }
 
+/* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
@@ -196,6 +199,7 @@ nav img {
     }
 }
 
+/* Footer Styling */
 .footer {
     width: 100%;
     background: #0006b3;
@@ -203,10 +207,12 @@ nav img {
     text-align: center;
     color: white;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevents the footer from shrinking */
 }
 
 /* Responsive Design */
+
+/* Tablet and Small Laptop Screens */
 @media (max-width: 1024px) {
     /* Adjust navigation padding */
     nav {
