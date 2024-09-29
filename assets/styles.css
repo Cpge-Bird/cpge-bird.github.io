@@ -185,67 +185,207 @@ nav ul li a:hover {
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
+/* Enhanced Mobile-specific Adjustments */
+
+/* Tablet and Small Laptop Screens */
+@media (max-width: 1024px) {
+    /* Adjust navigation padding */
+    nav {
+        padding: 1% 5%;
+    }
+
+    /* Reduce font sizes for navigation links */
+    nav ul li a {
+        font-size: 1em;
+        padding: 6px 12px;
+    }
+
+    /* Adjust search bar */
+    .search-bar {
+        max-width: 200px;
+    }
+
+    /* Adjust main content padding */
+    .content {
+        padding: 0 20px;
+    }
+
+    /* Adjust footer font size */
+    .footer {
+        font-size: 13px;
+    }
+}
+
+/* Mobile Devices */
 @media (max-width: 768px) {
+    /* Hide navigation links and show a hamburger menu */
     nav ul {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #0051b3;
     }
 
-    nav img {
-        height: 40px;
+    /* Show hamburger icon */
+    nav::after {
+        content: '\2630'; /* Unicode for hamburger icon */
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        display: block;
     }
 
+    /* Toggle navigation menu on hamburger click */
+    nav.active ul {
+        display: flex;
+    }
+
+    /* Style navigation links when visible */
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* Adjust search bar */
     .search-bar {
-        max-width: 150px;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Stack content vertically */
+    .content {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .content-left, .content-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .content-left {
+        order: 2; /* Move text below the image */
+        margin-top: 20px;
+    }
+
+    .content-right {
+        order: 1; /* Show image first */
+        margin-bottom: 20px;
     }
 
     .content-left h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
 
     .content-left p {
         font-size: 1em;
-    }
-
-    .content-right img {
-        width: 60%;
-    }
-
-}
-
-@media (max-width: 480px) {
-    nav {
-        flex-direction: column;
-        padding: 5% 3%;
-    }
-
-    .search-bar {
-        width: 100%;
         margin: 10px 0;
     }
 
-    .content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .content-left, .content-right {
-        flex: none;
-        width: 100%;
-    }
-
-    .content-left h1 {
-        font-size: 2em;
-    }
-
-    .content-left p {
-        font-size: 0.9em;
-    }
-
     .content-right img {
-        width: 70%;
+        width: 90%;
+        max-width: 250px;
     }
 
+    /* Enhance footer for mobile */
+    .footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    /* Popup Modal adjustments */
+    .popup-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    button#learnMoreBtn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1em;
+    }
+}
+
+/* Ultra-Small Mobile Devices */
+@media (max-width: 480px) {
+    /* Further reduce navigation padding */
+    nav {
+        padding: 2% 3%;
+    }
+
+    /* Adjust hamburger icon size */
+    nav::after {
+        font-size: 20px;
+    }
+
+    /* Adjust main content padding */
+    .content {
+        padding: 15px 5px;
+    }
+
+    /* Adjust footer font size and padding */
+    .footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    /* Adjust popup modal */
+    .popup-content {
+        padding: 15px;
+    }
+
+    button#learnMoreBtn {
+        padding: 10px 0;
+        font-size: 0.95em;
+    }
+}
+
+/* Smooth Transitions for Interactive Elements */
+nav ul li a,
+button#learnMoreBtn,
+.close {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced Hover Effects for Better UX */
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffeb3b;
+}
+
+button#learnMoreBtn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.close:hover {
+    color: #ff0000;
+    transform: rotate(90deg);
+}
+
+/* Improved Search Bar for Touch Devices */
+.search-bar input {
+    font-size: 1em;
+    padding: 10px;
+}
+
+.search-bar button {
+    font-size: 1.2em;
+}
+
+/* Add Shadow and Rounded Corners for a Modern Look */
+nav, .footer, .popup-content {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Optimize Popup for Mobile */
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 20px;
+        border-radius: 15px;
+    }
 }
 
 /* Popup Styles */
