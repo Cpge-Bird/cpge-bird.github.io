@@ -36,6 +36,7 @@ nav {
     padding: 1% 3%;
     box-sizing: border-box;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0; /* Removed rounded corners */
 }
 
 nav img {
@@ -207,6 +208,7 @@ nav img {
     color: white;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
     flex-shrink: 0; /* Prevents the footer from shrinking */
+    border-radius: 0; /* Removed rounded corners */
 }
 
 /* Responsive Design */
@@ -227,6 +229,7 @@ nav img {
     /* Adjust search bar */
     .search-bar {
         max-width: 200px;
+        border-radius: 15px; /* Slightly reduced border-radius */
     }
 
     /* Adjust main content padding */
@@ -274,6 +277,13 @@ nav img {
     .search-bar {
         width: 90%;
         margin: 10px 0;
+        border-radius: 15px; /* Reduced border-radius */
+        padding: 10px; /* Increased padding for better touch usability */
+    }
+
+    .search-bar input {
+        padding: 10px;
+        border-radius: 15px; /* Reduced border-radius */
     }
 
     /* Stack content vertically */
@@ -305,11 +315,22 @@ nav img {
     .footer {
         font-size: 14px;
         padding: 15px;
+        border-radius: 0; /* Removed rounded corners */
+    }
+
+    /* Remove border-radius from nav and footer in mobile */
+    nav {
+        border-radius: 0;
     }
 }
 
+/* Further adjustments for smaller screens */
 @media (max-width: 480px) {
-    /* Further adjustments for smaller screens */
+    /* Ensure nav and footer have no rounded corners */
+    nav, .footer {
+        border-radius: 0;
+    }
+
     .nav-links.active {
         max-height: 600px; /* Ensure enough space for all items */
     }
@@ -317,6 +338,12 @@ nav img {
     .search-bar {
         width: 95%;
         padding: 12px;
+        border-radius: 10px; /* Further reduced border-radius */
+    }
+
+    .search-bar input {
+        padding: 12px;
+        border-radius: 10px; /* Further reduced border-radius */
     }
 
     .content-left h1 {
@@ -458,7 +485,7 @@ button#learnMoreBtn:hover {
 /* Add Shadow and Rounded Corners for a Modern Look */
 nav, .footer, .popup-content {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 0; /* Removed rounded corners from nav and footer */
 }
 
 /* Optimize Popup for Mobile */
