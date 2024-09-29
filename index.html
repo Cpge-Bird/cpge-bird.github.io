@@ -12,45 +12,50 @@
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <nav>
-        <img src="pics/cpge.png" alt="Robotics Club Logo">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li>
-                <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Search...">
-                    <button type="submit">&#128269;</button> <!-- Search icon -->
-                </div>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="content">
-        <div class="content-left">
-            <h1>Beurd Byte Builders</h1>
-            <p>A club for all technology and robotic lovers, a place where all the robotic lovers unite and make the best projects.</p>
-        </div>
-        <div class="content-right">
-            <img src="pics/arduino.png" alt="Arduino">
-        </div>
-    </div>
-
-    <!-- Popup Modal -->
-    <div id="popup" class="popup">
-        <div class="confetti-circle">
-            <canvas id="confetti"></canvas>
-        </div>
-        <div class="popup-content">
-            <span id="closePopup" class="close">&times;</span>
-            <h2>🎉 Opening Soon! 🎉</h2>
-            <p>We are thrilled to announce the official opening of our club!</p>
-            <p>The website will launch in <span id="countdown"></span> days.</p>
-            <button id="learnMoreBtn" onclick="window.open('https://drive.google.com/file/d/1-89vq4u2olCBxE9eehd3tw0nghnQsD1R/view?usp=drivesdk', '_blank');">
-                Our Presentation!
+    <div class="wrapper">
+        <nav>
+            <img src="pics/cpge.png" alt="Robotics Club Logo">
+            <button class="hamburger" aria-label="Toggle navigation">
+                &#9776; <!-- Hamburger icon -->
             </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Search...">
+                        <button type="submit">&#128269;</button> <!-- Search icon -->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div class="content-left">
+                <h1>Beurd Byte Builders</h1>
+                <p>A club for all technology and robotic lovers, a place where all the robotic lovers unite and make the best projects.</p>
+            </div>
+            <div class="content-right">
+                <img src="pics/arduino.png" alt="Arduino">
+            </div>
+        </div>
+
+        <!-- Popup Modal -->
+        <div id="popup" class="popup">
+            <div class="confetti-circle">
+                <canvas id="confetti"></canvas>
+            </div>
+            <div class="popup-content">
+                <span id="closePopup" class="close">&times;</span>
+                <h2>🎉 Opening Soon! 🎉</h2>
+                <p>We are thrilled to announce the official opening of our club!</p>
+                <p>The website will launch in <span id="countdown"></span> days.</p>
+                <button id="learnMoreBtn" onclick="window.open('https://drive.google.com/file/d/1-89vq4u2olCBxE9eehd3tw0nghnQsD1R/view?usp=drivesdk', '_blank');">
+                    Our Presentation!
+                </button>
+            </div>
         </div>
     </div>
 
@@ -168,12 +173,12 @@
     <!-- JavaScript for Hamburger Menu -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const nav = document.querySelector('nav');
-            nav.addEventListener('click', function(event) {
-                // Prevent toggling when clicking on links or search bar
-                if (!event.target.closest('ul') && event.target !== nav) {
-                    nav.classList.toggle('active');
-                }
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active'); // Optional: Change hamburger icon when active
             });
         });
     </script>
