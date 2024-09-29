@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="BeurdByte Builders">
-        <meta property="og:description" content="The official webpage for the beurdbytebuilder's club.">
-        <meta property="og:image" content="https://media.discordapp.net/attachments/1250749400159096842/1289961720743465024/pngegg.png?ex=66fab9f8&is=66f96878&hm=4eb3dcf3a00a9e6d16e7e6db583f6f9e620b780b19766b14836df3d3b23bac3b&=&format=webp&quality=lossless&width=536&height=708">
-        <meta name="theme-color" content="#88e1f2">
-        <title>BeurbByteBuilders</title>
-        <link rel="icon" href="mentora.ico" type="image/x-icon">
-        <link rel="stylesheet" href="assets/styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="BeurdByte Builders">
+    <meta property="og:description" content="The official webpage for the beurdbytebuilder's club.">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1250749400159096842/1289961720743465024/pngegg.png?ex=66fab9f8&is=66f96878&hm=4eb3dcf3a00a9e6d16e7e6db583f6f9e620b780b19766b14836df3d3b23bac3b&=&format=webp&quality=lossless&width=536&height=708">
+    <meta name="theme-color" content="#88e1f2">
+    <title>BeurdByteBuilders</title>
+    <link rel="icon" href="mentora.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
 <body>
     <nav>
         <img src="pics/cpge.png" alt="Robotics Club Logo">
@@ -22,6 +22,7 @@
             <li>
                 <div class="search-bar">
                     <input type="text" id="searchInput" placeholder="Search...">
+                    <button type="submit">&#128269;</button> <!-- Search icon -->
                 </div>
             </li>
         </ul>
@@ -48,7 +49,7 @@
             <p>We are thrilled to announce the official opening of our club!</p>
             <p>The website will launch in <span id="countdown"></span> days.</p>
             <button id="learnMoreBtn" onclick="window.open('https://drive.google.com/file/d/1-89vq4u2olCBxE9eehd3tw0nghnQsD1R/view?usp=drivesdk', '_blank');">
-            Our Presentation!
+                Our Presentation!
             </button>
         </div>
     </div>
@@ -57,6 +58,7 @@
         &copy; 2024 Beurd Robotics Club, Designed with love by <a href="https://akeanti.github.io/" target="_blank">Akeanti</a>.
     </footer>
     
+    <!-- JavaScript for Popup and Confetti (unchanged) -->
     <script>
         // Popup Logic
         document.addEventListener("DOMContentLoaded", function() {
@@ -161,6 +163,19 @@
                 }
             });
         });
-    </script>        
+    </script>
+
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.querySelector('nav');
+            nav.addEventListener('click', function(event) {
+                // Prevent toggling when clicking on links or search bar
+                if (!event.target.closest('ul') && event.target !== nav) {
+                    nav.classList.toggle('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
