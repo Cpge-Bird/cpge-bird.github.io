@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Mentora">
+        <meta property="og:description" content="Biblio Pour les eleves 2bac sm au maroc.">
+        <meta property="og:image" content="https://media.discordapp.net/attachments/1265442511074103438/1279458142270263397/logo.png?ex=66d483c0&is=66d33240&hm=fc0e5e65ed4104ff056037ad3edbfef1f7bacaacb17da8c8276238e1e269fb77&=&format=webp&quality=lossless&width=288&height=286">
+        <meta name="theme-color" content="#88e1f2">
+        <title>Mentora</title>
+        <link rel="icon" href="mentora.ico" type="image/x-icon">
+        <link rel="stylesheet" href="assets/styles.css">
+    </head>
+<body>
+    <nav>
+        <img src="pics/cpge.png" alt="Robotics Club Logo">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="content-left">
+            <h1>Beurd Byte Builders</h1>
+            <p>A club for all technology and robotic lovers, a place where all the robotic lovers unite and make the best projects.</p>
+        </div>
+        <div class="content-right">
+            <img src="pics/arduino.png" alt="Arduino">
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup">
+        <div class="confetti-circle">
+            <canvas id="confetti"></canvas>
+        </div>
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>🎉 Opening Soon! 🎉</h2>
+            <p>We are thrilled to announce the official opening of our club!</p>
+            <p>The website will launch in <span id="countdown"></span> days.</p>
+            <button id="learnMoreBtn">Our Presentation!</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 Beurd Robotics Club, Designed with love by <a href="https://www.akeanti.com" target="_blank">Akeanti</a>.
+    </footer>
+    
+    <script>
+        // Popup Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            const popup = document.getElementById('popup');
+            const closePopup = document.getElementById('closePopup');
+            const searchInput = document.getElementById('searchInput');
+            const launchDate = new Date().getTime() + (3 * 24 * 60 * 60 * 1000); // 3 days countdown
+            const countdownElement = document.getElementById('countdown');
+            const confettiCanvas = document.getElementById("confetti");
+
+            let particles = [];
+            let animationFrameId;
+
+            // Show popup on load
+            setTimeout(function() {
+                popup.style.display = 'flex';
+                startConfetti();
+            }, 1000);
+
+            // Close popup when close button is clicked
+            closePopup.addEventListener('click', function() {
+                popup.style.display = 'none';
+                stopConfetti();
+            });
+
+            // Countdown timer
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                countdownElement.innerHTML = days;
+
+                if (distance < 0) {
+                    countdownElement.innerHTML = "0"; // When countdown is over
+                }
+            }
+
+            // Update the countdown every 1 second
+            setInterval(updateCountdown, 1000);
+
+            // Confetti Effect
+            function startConfetti() {
+                const confetti = confettiCanvas.getContext('2d');
+                confettiCanvas.width = confettiCanvas.offsetWidth;
+                confettiCanvas.height = confettiCanvas.offsetHeight;
+
+                for (let i = 0; i < 100; i++) {
+                    particles.push(new Particle());
+                }
+
+                function Particle() {
+                    this.x = Math.random() * confettiCanvas.width;
+                    this.y = Math.random() * confettiCanvas.height;
+                    this.size = Math.random() * 5 + 5;
+                    this.speedY = Math.random() * 2 + 1;
+                    this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+                    this.update = function() {
+                        this.y += this.speedY;
+                        if (this.y > confettiCanvas.height) {
+                            this.y = 0 - this.size;
+                            this.x = Math.random() * confettiCanvas.width;
+                        }
+                    };
+
+                    this.draw = function() {
+                        confetti.fillStyle = this.color;
+                        confetti.beginPath();
+                        confetti.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        confetti.closePath();
+                        confetti.fill();
+                    };
+                }
+
+                function animate() {
+                    confetti.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+                    particles.forEach((particle) => {
+                        particle.update();
+                        particle.draw();
+                    });
+                    animationFrameId = requestAnimationFrame(animate);
+                }
+                animate();
+            }
+
+            function stopConfetti() {
+                cancelAnimationFrame(animationFrameId);
+            }
+
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const query = searchInput.value.toLowerCase();
+                const contentLeft = document.querySelector('.content-left');
+                const contentRight = document.querySelector('.content-right');
+
+                if (query) {
+                    contentLeft.style.display = contentLeft.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+                    contentRight.style.display = contentRight.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+                } else {
+                    contentLeft.style.display = 'block';
+                    contentRight.style.display = 'block';
+                }
+            });
+        });
+    </script>        
+</body>
+</html>
