@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="BeurdByte Builders">
+    <meta property="og:description" content="The official webpage for the beurdbytebuilder's club.">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1250749400159096842/1289961720743465024/pngegg.png?ex=66fab9f8&is=66f96878&hm=4eb3dcf3a00a9e6d16e7e6db583f6f9e620b780b19766b14836df3d3b23bac3b&=&format=webp&quality=lossless&width=536&height=708">
+    <meta name="theme-color" content="#88e1f2">
+    <title>BeurdByteBuilders</title>
+    <link rel="icon" href="mentora.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #0051b3;
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 80px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-content h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #1b00b3;
+        }
+
+        .article-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .article-content a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #01e6ff;
+            color: white;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .article-content a:hover {
+            background-color: #0051b3;
+        }
+
+        /* Layout */
+        .content-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            background: #0006b3;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+        }
+
+    /* Sidebar */
+.sidebar {
+    width: 100%; /* Full width on mobile */
+    margin-bottom: 20px; /* Add space below the sidebar */
+}
+
+/* Articles Section */
+.articles-section {
+    grid-template-columns: 1fr; /* Stack articles on mobile */
+    gap: 10px; /* Reduce gap on smaller screens */
+}
+
+/* General Styles for small screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    /* Hide sidebar on mobile */
+    .sidebar {
+        display: none;
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* Stack articles on mobile */
+    }
+
+    .article-card {
+        border-radius: 8px; /* Smaller border radius for mobile */
+        padding: 10px; /* Add padding for mobile */
+    }
+
+    .article-card img {
+        height: 150px; /* Smaller image height on mobile */
+    }
+
+    .article-content h2 {
+        font-size: 1.4em; /* Smaller title font size for mobile */
+    }
+
+    .article-content p {
+        font-size: 1em; /* Adjust paragraph size */
+    }
+
+    .article-content a {
+        padding: 6px 12px; /* Smaller button padding for mobile */
+    }
+
+    nav ul.nav-links {
+        flex-direction: column; /* Stack nav links on mobile */
+        display: none;
+    }
+
+    nav ul.nav-links.active {
+        display: flex;
+        gap: 10px;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+        cursor: pointer;
+    }
+}
+
+/* Optional: Larger screens */
+@media (min-width: 1200px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .sidebar {
+        width: 250px;
+    }
+
+    .articles-section {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+    }
+}
+
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <nav>
+        <img src="pics/cpge.png" alt="Robotics Club Logo">
+        <button class="hamburger" aria-label="Toggle navigation">
+            &#9776; <!-- Hamburger icon -->
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                    <button type="submit">&#128269;</button> <!-- Search icon -->
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Project Categories</h3>
+                <ul>
+                    <li><a href="#robotics">Robotics</a></li>
+                    <li><a href="#ai">Artificial Intelligence</a></li>
+                    <li><a href="#electronics">Electronics</a></li>
+                    <li><a href="#programming">Programming</a></li>
+                </ul>
+            </aside>
+
+            <!-- Articles Section -->
+            <section class="articles-section">
+                <div class="article-card">
+                    <img src="https://i.pinimg.com/736x/47/1a/f4/471af46519ed5bea2b0002e8c034b51b.jpg" alt="Robotics Project">
+                    <div class="article-content">
+                        <h2>Autonomous Robot</h2>
+                        <p>This project showcases our club’s first autonomous robot capable of navigating through obstacles using sensors.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://i.pinimg.com/736x/47/1a/f4/471af46519ed5bea2b0002e8c034b51b.jpg" alt="AI Project">
+                    <div class="article-content">
+                        <h2>AI Voice Assistant</h2>
+                        <p>Learn about our AI-powered voice assistant that can understand and respond to various commands using NLP algorithms.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://i.pinimg.com/736x/47/1a/f4/471af46519ed5bea2b0002e8c034b51b.jpg" alt="Electronics Project">
+                    <div class="article-content">
+                        <h2>Smart Home Automation</h2>
+                        <p>Explore how we designed a smart home system, allowing users to control appliances remotely through a mobile app.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <img src="https://i.pinimg.com/736x/47/1a/f4/471af46519ed5bea2b0002e8c034b51b.jpg" alt="Programming Project">
+                    <div class="article-content">
+                        <h2>Web Development Bootcamp</h2>
+                        <p>Our latest programming project involved teaching students how to build and deploy full-stack web applications.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 Beurd Robotics Club, Designed with love by <a href="https://www.akeanti.com" target="_blank">Akeanti</a>.
+    </footer>
+    <script>
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const query = searchInput.value.toLowerCase();
+                const contentLeft = document.querySelector('.content-left');
+                const contentRight = document.querySelector('.content-right');
+
+                if (query) {
+                    contentLeft.style.display = contentLeft.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+                    contentRight.style.display = contentRight.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+                } else {
+                    contentLeft.style.display = 'block';
+                    contentRight.style.display = 'block';
+                }
+            });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active'); // Optional: Change hamburger icon when active
+            });
+        });
+        </script>
+           
+</body>
+</html>
