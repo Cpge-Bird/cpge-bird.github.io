@@ -42,22 +42,6 @@
                 <img src="pics/arduino.png" alt="Arduino">
             </div>
         </div>
-
-        <!-- Popup Modal -->
-        <div id="popup" class="popup">
-            <div class="confetti-circle">
-                <canvas id="confetti"></canvas>
-            </div>
-            <div class="popup-content">
-                <span id="closePopup" class="close">&times;</span>
-                <h2>🎉 Opening Soon! 🎉</h2>
-                <p>We are thrilled to announce the official opening of our club!</p>
-                <p>The website will launch in <span id="countdown"></span> days.</p>
-                <button id="learnMoreBtn" onclick="window.open('https://drive.google.com/file/d/1-89vq4u2olCBxE9eehd3tw0nghnQsD1R/view?usp=drivesdk', '_blank');">
-                    Our Presentation!
-                </button>
-            </div>
-        </div>
     </div>
 
     <footer class="footer">
@@ -66,94 +50,6 @@
     
     <!-- JavaScript for Popup and Confetti (unchanged) -->
     <script>
-        // Popup Logic
-        document.addEventListener("DOMContentLoaded", function() {
-            const popup = document.getElementById('popup');
-            const closePopup = document.getElementById('closePopup');
-            const searchInput = document.getElementById('searchInput');
-            const launchDate = new Date().getTime() + (3 * 24 * 60 * 60 * 1000); // 3 days countdown
-            const countdownElement = document.getElementById('countdown');
-            const confettiCanvas = document.getElementById("confetti");
-
-            let particles = [];
-            let animationFrameId;
-
-            // Show popup on load
-            setTimeout(function() {
-                popup.style.display = 'flex';
-                startConfetti();
-            }, 1000);
-
-            // Close popup when close button is clicked
-            closePopup.addEventListener('click', function() {
-                popup.style.display = 'none';
-                stopConfetti();
-            });
-
-            // Countdown timer
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = launchDate - now;
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                countdownElement.innerHTML = days;
-
-                if (distance < 0) {
-                    countdownElement.innerHTML = "0"; // When countdown is over
-                }
-            }
-
-            // Update the countdown every 1 second
-            setInterval(updateCountdown, 1000);
-
-            // Confetti Effect
-            function startConfetti() {
-                const confetti = confettiCanvas.getContext('2d');
-                confettiCanvas.width = confettiCanvas.offsetWidth;
-                confettiCanvas.height = confettiCanvas.offsetHeight;
-
-                for (let i = 0; i < 100; i++) {
-                    particles.push(new Particle());
-                }
-
-                function Particle() {
-                    this.x = Math.random() * confettiCanvas.width;
-                    this.y = Math.random() * confettiCanvas.height;
-                    this.size = Math.random() * 5 + 5;
-                    this.speedY = Math.random() * 2 + 1;
-                    this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
-
-                    this.update = function() {
-                        this.y += this.speedY;
-                        if (this.y > confettiCanvas.height) {
-                            this.y = 0 - this.size;
-                            this.x = Math.random() * confettiCanvas.width;
-                        }
-                    };
-
-                    this.draw = function() {
-                        confetti.fillStyle = this.color;
-                        confetti.beginPath();
-                        confetti.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        confetti.closePath();
-                        confetti.fill();
-                    };
-                }
-
-                function animate() {
-                    confetti.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-                    particles.forEach((particle) => {
-                        particle.update();
-                        particle.draw();
-                    });
-                    animationFrameId = requestAnimationFrame(animate);
-                }
-                animate();
-            }
-
-            function stopConfetti() {
-                cancelAnimationFrame(animationFrameId);
-            }
-
             // Search functionality
             searchInput.addEventListener('input', function() {
                 const query = searchInput.value.toLowerCase();
