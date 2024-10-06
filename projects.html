@@ -252,7 +252,18 @@
     <footer class="footer">
         &copy; 2024 Beurd Robotics Club, Designed with love by <a href="https://www.akeanti.com" target="_blank">Akeanti</a>.
     </footer>
+        <!-- JavaScript for Hamburger Menu -->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active'); // Optional: Change hamburger icon when active
+            });
+        })
+        
         document.addEventListener("DOMContentLoaded", function() {
             const searchInput = document.getElementById('searchInput');
         
