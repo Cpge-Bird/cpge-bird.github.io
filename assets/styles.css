@@ -400,17 +400,7 @@ button#learnMoreBtn,
 /* Enhanced Hover Effects for Better UX */
 .nav-links li a:hover {
     background: rgba(255, 255, 255, 0.2);
-    color: #ffeb3b;
-}
-
-button#learnMoreBtn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.close:hover {
-    color: #ff0000;
-    transform: rotate(90deg);
+    color: #3bd8ff;
 }
 
 /* Improved Search Bar for Touch Devices */
@@ -421,10 +411,4 @@ button#learnMoreBtn:hover {
 
 .search-bar button {
     font-size: 1.2em;
-}
-
-/* Add Shadow and Rounded Corners for a Modern Look */
-nav, .footer, .popup-content {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0; /* Removed rounded corners from nav and footer */
 }
