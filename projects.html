@@ -10,66 +10,6 @@
     <title>Mentora Project Articles</title>
     <link rel="stylesheet" href="assets/styles.css">
     <style>
-        /* General Styles */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #f4f7fc;
-            font-family: 'Orbitron', sans-serif;
-            color: #1b00b3;
-            box-sizing: border-box;
-        }
-
-        a {
-            text-decoration: none;
-            color: #01e6ff;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #0051b3;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background-color: #0051b3;
-            color: white;
-            padding: 20px;
-            position: sticky;
-            top: 80px;
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            height: fit-content;
-        }
-
-        .sidebar h3 {
-            font-size: 1.6em;
-            margin-bottom: 20px;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar ul li a {
-            color: white;
-            font-size: 1.2em;
-        }
-
         /* Articles Section */
         .articles-section {
             flex: 1;
@@ -180,20 +120,24 @@
     </style>
 </head>
 <body>
-    <nav>
-        <img src="pics/cpge.png" alt="Robotics Club Logo">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li>
-                <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Search...">
-                </div>
-            </li>
-        </ul>
-    </nav>
+        <nav>
+            <img src="pics/cpge.png" alt="Robotics Club Logo">
+            <button class="hamburger" aria-label="Toggle navigation">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Search...">
+                        <button type="submit">&#128269;</button> <!-- Search icon -->
+                    </div>
+                </li>
+            </ul>
+        </nav>
 
     <div class="container">
         <div class="content-wrapper">
