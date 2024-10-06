@@ -389,92 +389,6 @@ nav img {
     }
 }
 
-/* Popup Styles */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.popup-content {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-    animation: popupSlideIn 0.5s ease-in-out;
-}
-
-@keyframes popupSlideIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.close:hover {
-    color: #ff0000;
-    transform: rotate(90deg);
-}
-
-#countdown {
-    font-weight: bold;
-    color: #ff4500;
-    font-size: 1.5em;
-}
-
-button#learnMoreBtn {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-button#learnMoreBtn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-/* Confetti Canvas */
-#confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
 /* Smooth Transitions for Interactive Elements */
 .nav-links li a,
 button#learnMoreBtn,
@@ -513,12 +427,4 @@ button#learnMoreBtn:hover {
 nav, .footer, .popup-content {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0; /* Removed rounded corners from nav and footer */
-}
-
-/* Optimize Popup for Mobile */
-@media (max-width: 768px) {
-    .popup-content {
-        padding: 20px;
-        border-radius: 15px;
-    }
 }
