@@ -7,8 +7,9 @@
     <meta property="og:description" content="The official webpage for the beurdbytebuilder's club.">
     <meta property="og:image" content="https://media.discordapp.net/attachments/1250749400159096842/1289961720743465024/pngegg.png?ex=66fab9f8&is=66f96878&hm=4eb3dcf3a00a9e6d16e7e6db583f6f9e620b780b19766b14836df3d3b23bac3b&=&format=webp&quality=lossless&width=536&height=708">
     <meta name="theme-color" content="#88e1f2">
+    <meta name="google-site-verification" content="xjUJtPjMptcQrCDQ3lY1sFIMZ5J9doUHCHDTlnXBBDg" />
     <title>BeurdByteBuilders</title>
-    <link rel="icon" href="mentora.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/styles.css">
     <style>
         /* Sidebar */
@@ -128,6 +129,55 @@
     gap: 10px; /* Reduce gap on smaller screens */
 }
 
+/* For medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .container {
+        padding: 30px 15px; /* Moderate padding for tablets */
+    }
+
+    /* Adjust sidebar */
+    .sidebar {
+        width: 200px; /* Slightly smaller sidebar width for tablets */
+        top: 70px; /* Adjust sticky position */
+        position: r; /* Allow the sidebar to scroll naturally */
+        margin-bottom: 20px; /* Add space below the sidebar */
+    }
+
+    .articles-section {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 15px; /* Adjust spacing between articles */
+    }
+
+    /* Adjust article card styles for tablets */
+    .article-card {
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .article-card img {
+        height: 180px; /* Adjust image height for tablets */
+    }
+
+    .article-content h2 {
+        font-size: 1.6em; /* Adjust font size for titles */
+    }
+
+    .article-content p {
+        font-size: 1.05em; /* Slightly larger paragraph text for better readability */
+    }
+
+    .article-content a {
+        padding: 7px 14px; /* Moderate button padding for tablets */
+    }
+
+    /* Adjust footer */
+    .footer {
+        padding: 25px;
+        font-size: 1.1em; /* Adjust footer text size */
+    }
+}
+
+
 /* General Styles for small screens */
 @media (max-width: 768px) {
     .container {
@@ -164,19 +214,8 @@
         padding: 6px 12px; /* Smaller button padding for mobile */
     }
 
-    nav ul.nav-links {
-        flex-direction: column; /* Stack nav links on mobile */
-        display: none;
-    }
-
-    nav ul.nav-links.active {
-        display: flex;
-        gap: 10px;
-    }
-
     .hamburger {
         display: block; /* Show hamburger on mobile */
-        cursor: pointer;
     }
 }
 
@@ -291,7 +330,10 @@
                     contentRight.style.display = 'block';
                 }
             });
+    </script>
 
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
@@ -301,7 +343,7 @@
                 hamburger.classList.toggle('active'); // Optional: Change hamburger icon when active
             });
         });
-        </script>
+    </script>
            
 </body>
 </html>
