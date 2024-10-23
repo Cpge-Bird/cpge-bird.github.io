@@ -11,6 +11,53 @@
     <title>BeurdByteBuilders</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column; /* Align circles vertically */
+            align-items: center; /* Center circles horizontally */
+            gap: 10px; /* Space between circles */
+        }
+        .device-circle {
+            width: 50px; /* Increased size for better visibility */
+            height: 50px; /* Increased size for better visibility */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+        }
+        .device-circle:hover {
+            transform: scale(1.1); /* Scale up on hover */
+        }
+        .circle-arduino {
+            background-color: #ff5722; /* Arduino color */
+        }
+        .circle-rpi {
+            background-color: #4caf50; /* Raspberry Pi color */
+        }
+        .circle-esp {
+            background-color: #2196f3; /* ESP color */
+        }
+        .card {
+            display: none; /* Initially hide cards */
+            margin-top: 20px;
+            padding: 15px;
+            border: none; /* Remove border */
+            border-radius: 5px; /* Keep rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a light shadow for card */
+            height: 0; /* Prevents taking up space when hidden */
+            overflow: hidden; /* Hides any overflow content */
+        }
+        #deviceImage {
+            transition: opacity 0.5s ease; /* Smooth transition for opacity */
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -39,34 +86,69 @@
                 <p>A club for all technology and robotic lovers, a place where all the robotic lovers unite and make the best projects.</p>
             </div>
             <div class="content-right">
-                <img src="pics/arduino.png" alt="Arduino">
+                <img id="deviceImage" src="pics/arduino.png" alt="Arduino">
+                <div class="button-container">
+                    <div class="device-circle circle-arduino" onclick="showCard('arduino')">A</div>
+                    <div class="device-circle circle-rpi" onclick="showCard('rpi')">R</div>
+                    <div class="device-circle circle-esp" onclick="showCard('esp')">E</div>
+                </div>
+                <div id="arduinoCard" class="card active"></div>
+                <div id="rpiCard" class="card"></div>
+                <div id="espCard" class="card"></div>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        &copy; 2024 Beurd Robotics Club, Designed with love by <a href="https://akeanti.github.io/Portfolio/" target="_blank">Akeanti</a>.
+        &copy; 2024 Beurd Robotics Club, Designed with love by <a href="https://akeanti.github.io/" target="_blank">Akeanti</a>.
     </footer>
     
     <script>
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const query = searchInput.value.toLowerCase();
-                const contentLeft = document.querySelector('.content-left');
-                const contentRight = document.querySelector('.content-right');
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.toLowerCase();
+            const contentLeft = document.querySelector('.content-left');
+            const contentRight = document.querySelector('.content-right');
 
-                if (query) {
-                    contentLeft.style.display = contentLeft.textContent.toLowerCase().includes(query) ? 'block' : 'none';
-                    contentRight.style.display = contentRight.textContent.toLowerCase().includes(query) ? 'block' : 'none';
-                } else {
-                    contentLeft.style.display = 'block';
-                    contentRight.style.display = 'block';
-                }
-            });
-    </script>
+            if (query) {
+                contentLeft.style.display = contentLeft.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+                contentRight.style.display = contentRight.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+            } else {
+                contentLeft.style.display = 'block';
+                contentRight.style.display = 'block';
+            }
+        });
 
-    <!-- JavaScript for Hamburger Menu -->
-    <script>
+        // JavaScript for dynamic card display
+        function showCard(device) {
+            // Hide all cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            // Show the selected card
+            document.getElementById(device + 'Card').classList.add('active');
+
+            // Fade out the image before changing the source
+            const deviceImage = document.getElementById('deviceImage');
+            deviceImage.style.opacity = '0'; // Start fade out
+
+            // Use a timeout to wait for the fade-out effect to finish before changing the image
+            setTimeout(() => {
+                // Change the image based on the selected device
+                const imageMap = {
+                    arduino: 'pics/arduino.png',
+                    rpi: 'pics/rpi.png', // Replace with the correct path for Raspberry Pi image
+                    esp: 'pics/esp.png'  // Replace with the correct path for ESP image
+                };
+                deviceImage.src = imageMap[device];
+
+                // Fade in the image
+                deviceImage.style.opacity = '1'; // Start fade in
+            }, 500); // Match the timeout with the CSS transition duration
+        }
+
+        // JavaScript for Hamburger Menu
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
